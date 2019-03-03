@@ -1,0 +1,14 @@
+/runtime/
+
+/database/
+
+/media/*
+!/media/.gitkeep
+
+/.idea/
+/venv/
+__pycache__/
+
+*.mo
+*.pyc
+local_settings.py
