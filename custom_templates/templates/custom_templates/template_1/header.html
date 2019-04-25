@@ -1,0 +1,67 @@
+<div class="header">
+    <div class="row wrapper">
+        <div class="brand-name col-md-2 d-flex justify-content-center align-items-center p-3">{{ brand }}</div>
+        <div class="col-md-8 p-3">
+            <form id="search-form" action="" method="get">
+                <div class="input-wrapper">
+                    <input name="search" placeholder="جست و جو" class="form-control text-font">
+                </div>
+                <div class="search-button-wrapper d-flex justify-content-center bg-info">
+                    <button type="submit" class="button-background-hidden"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-1 d-flex justify-content-start align-items-center p-3 h2 fg-green">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </div>
+</div>
+
+<style>
+    .brand-name{
+        font-size: {{ brand_name_size }}px;
+    }
+    .button-background-hidden{
+        background: transparent;
+        padding: 0;
+        border: 0;
+    }
+    .input-wrapper{
+        display: inline-block;
+        width: 90%;
+    }
+    .input-wrapper input{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .search-button-wrapper{
+        display: inline-block;
+        width: 10%;
+        float: left;
+        padding: 4px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    .search-button-wrapper button{
+        font-size: 20px;
+        color: white;
+    }
+    .search-button-wrapper button:focus{
+        border: none;
+        outline:none;
+    }
+    .fg-green{
+        color: #1abc9c;
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+        $('.header #search-form').submit(function (event) {
+            event.preventDefault();
+            var value = $('.header input[name=search]').val();
+            console.log(value);
+        });
+    });
+</script>
+

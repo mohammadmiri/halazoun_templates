@@ -1,0 +1,17 @@
+{% load static %}
+
+<div class="image-with-text">
+    <div class="row wrapper p-5 mt-5 mb-5" dir="rtl">
+        <div class="w-50">
+            <img src="{% static 'custom_templates/img/background.jpg' %}" class="w-100">
+        </div>
+        <div class="d-flex flex-column w-50">
+            <div class="h-50 pr-5 p-3 d-flex justify-content-right align-items-end h1 font-weight-bold">
+                {{ main_text }}
+            </div>
+            <div class="h-50 pr-5 p-2 d-flex justify-content-right align-items-start h4">
+                {{ margin_text }}
+            </div>
+        </div>
+    </div>
+</div>
