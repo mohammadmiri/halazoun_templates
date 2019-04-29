@@ -26,6 +26,10 @@
             font-family: iran-sans-number, sans-serif;
         }
 
+        .hover-pointer:hover{
+            cursor: pointer;
+        }
+
     </style>
 
 </head>
@@ -34,10 +38,13 @@
 <div class="container-fluid text-font" dir="rtl">
 
     {% include 'custom_templates/template_1/header.html' with brand='حلزون' brand_name_size='30' %}
-    {% include 'custom_templates/template_1/image_with_text_overlay.html' with main_text_size='65' margin_text_size='20' main_text='image with text overlay' margin_text='Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story' %}
-    {% include 'custom_templates/template_1/collection.html' with column_num=4 %}
-    {% include 'custom_templates/template_1/image_with_text.html' with main_text='یه محصول خیلی خوب' margin_text='یه توضیح عالی' %}
-    {% include 'custom_templates/template_1/slide_show.html' %}
+    {% include 'custom_templates/template_1/shopping-cart.html' %}
+{#    {% include 'custom_templates/template_1/not_found.html' %}#}
+{#    {% include 'custom_templates/template_1/search_results.html' %}#}
+{#    {% include 'custom_templates/template_1/image_with_text_overlay.html' with main_text_size='65' margin_text_size='20' main_text='image with text overlay' margin_text='Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story' %}#}
+{#    {% include 'custom_templates/template_1/collection.html' with column_num=4 %}#}
+{#    {% include 'custom_templates/template_1/image_with_text.html' with main_text='یه محصول خیلی خوب' margin_text='یه توضیح عالی' %}#}
+{#    {% include 'custom_templates/template_1/slide_show.html' %}#}
     {% include 'custom_templates/template_1/footer.html' with text='این یک متن است' position='right' %}
 
 </div>

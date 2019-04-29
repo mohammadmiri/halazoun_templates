@@ -1,0 +1,104 @@
+{% load static %}
+
+
+<div class="shopping-cart">
+    <div class="states-wrapper d-flex justify-content-center">
+        <div class="w-50">
+            <div class="d-flex align-items-center p-3">
+                <div class="state d-inline-block p-2">
+                    <div class="d-flex justify-content-center p-3"><img src="{% static 'custom_templates/img/background.jpg' %}"></div>
+                    <div class="text-center h6 h-0">سبد خرید</div>
+                </div>
+                <div class="state-splitter d-inline-block h-100 w-10"><hr></div>
+                <div class="state d-inline-block p-2">
+                    <div class="d-flex justify-content-center p-3"><img src="{% static 'custom_templates/img/background.jpg' %}"></div>
+                    <div class="text-center h6 h-0">اطلاعات ارسال</div>
+                </div>
+                <div class="state-splitter d-inline-block h-100 w-10"><hr></div>
+                <div class="state d-inline-block p-2">
+                    <div class="d-flex justify-content-center p-3"><img src="{% static 'custom_templates/img/background.jpg' %}"></div>
+                    <div class="text-center h6 h-0">نحوه پرداخت</div>
+                </div><div class="state-splitter d-inline-block h-100 w-10"><hr></div>
+                <div class="state d-inline-block p-2">
+                    <div class="d-flex justify-content-center p-3"><img src="{% static 'custom_templates/img/background.jpg' %}"></div>
+                    <div class="text-center h6 h-0">اتمام خرید</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="state-shopping-cart mt-5 p-5">
+        <div class="row m-5 h4">
+            <div class="col-md-4">کالا</div>
+            <div class="col-md-2 d-flex justify-content-center">قیمت</div>
+            <div class="col-md-2 d-flex justify-content-center">تعداد</div>
+            <div class="col-md-2 d-flex justify-content-center">جمع قیمت</div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="products-wrapper">
+            <div class="row m-5 p-2 border-thin border-gray rounded shadow">
+                <div class="col-md-4">
+                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">
+                    <span class="mr-3">کفش</span>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <span class="h5">25000</span>
+                    <span class="h6 mr-2">تومان</span>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <div class="rounded d-flex align-items-center bg-dark-gray">
+                        <div class="m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>
+                        <div class="m-1 h3"><input class="form-control text-center text-font bg-light-gray" type="text" value="5"></div>
+                        <div class="m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <span class="h5">25000</span>
+                    <span class="h6 mr-2">تومان</span>
+                </div>
+                <div class="col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .shopping-cart{
+        color: #45424e;
+    }
+
+    .shopping-cart .states-wrapper .state{
+        width: 17.5%;
+    }
+    .shopping-cart .states-wrapper .state-splitter{
+        width: 10%;
+    }
+    .shopping-cart .states-wrapper .state img{
+        width: 80px;
+        height: 80px;
+    }
+    .shopping-cart .states-wrapper .h-0{
+        height: 0;
+    }
+
+    .shopping-cart .state-shopping-cart .products-wrapper img{
+        width: 60px;
+        height: 60px;
+    }
+    .shopping-cart .state-shopping-cart .border-thin{
+        border: 1px solid;
+    }
+    .shopping-cart .state-shopping-cart .bg-light-gray{
+        background: #eeeeee;
+    }
+    .shopping-cart .state-shopping-cart .bg-dark-gray{
+        background: #cccccc;
+    }
+</style>
+
+<script>
+    (function () {
+
+    })();
+</script>
+

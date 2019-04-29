@@ -1,0 +1,55 @@
+{% load static %}
+
+<div>
+    <div class="products-wrapper">
+
+    </div>
+</div>
+
+<style>
+    a:hover{
+        text-decoration: none;
+    }
+    .products-wrapper .product .info-wrapper{
+        border: 1px solid #eeeeee;
+        border-radius: 5px;
+        box-shadow: 0 0 20px #eeeeee;
+    }
+    .products-wrapper .product img{
+        width: 250px;
+        height: 250px;
+    }
+</style>
+
+<script>
+    (function () {
+        let product_str = '' +
+            '<div class="product d-inline-block w-25">' +
+            '    <div class="info-wrapper m-3 p-3 hover-pointer">' +
+            '        <div class="d-flex justify-content-center">' +
+            '            <img src="{% static 'custom_templates/img/background.jpg' %}">' +
+            '        </div>' +
+            '        <div>' +
+            '            <div class="m-2 text-center">کفش</div>' +
+            '            <div class="m-2 text-center">' +
+            '                <span>25000</span>' +
+            '                <span>تومان</span>' +
+            '            </div>' +
+            '        </div>' +
+            '        <div class="d-flex justify-content-center align-items-center">' +
+            '            <a href="" class="btn btn-info m-1">مشاهده و خرید</a>' +
+            '        </div>' +
+            '    </div>' +
+            '</div>';
+        for(let i=0; i<10; i++) {
+            let product_element = create_element_from_html(product_str);
+            document.querySelector('.products-wrapper').appendChild(product_element);
+        }
+    })();
+
+    function create_element_from_html(html_string) {
+        var div = document.createElement('div');
+        div.innerHTML = html_string.trim();
+        return div.firstChild;
+    }
+</script>
