@@ -5,21 +5,22 @@
     <div class="states-wrapper d-flex justify-content-center">
         <div class="w-50">
             <div class="d-flex align-items-center p-3">
-                <div class="state d-inline-block p-2">
+                <div class="state-logo state-color d-inline-block p-2 passed" data-tab-index="1">
                     <div class="d-flex justify-content-center color-light-gray p-3 h1"><i class="fas fa-shopping-bag"></i></div>
                     <div class="text-center color-dark-gray h6 h-0">سبد خرید</div>
                 </div>
-                <div class="state-splitter d-inline-block h-100 w-10"><hr></div>
-                <div class="state d-inline-block p-2">
+                <div class="state-splitter state-color border rounded d-inline-block h-100 w-10" data-tab-index="2"></div>
+                <div class="state-logo state-color d-inline-block p-2" data-tab-index="2">
                     <div class="d-flex justify-content-center color-light-gray p-3 h1"><i class="fas fa-truck"></i></div>
                     <div class="text-center color-dark-gray h6 h-0">اطلاعات ارسال</div>
                 </div>
-                <div class="state-splitter d-inline-block h-100 w-10"><hr></div>
-                <div class="state d-inline-block p-2">
+                <div class="state-splitter state-color border rounded d-inline-block h-100 w-10" data-tab-index="3"></div>
+                <div class="state-logo state-color d-inline-block p-2" data-tab-index="3">
                     <div class="d-flex justify-content-center color-light-gray p-3 h1"><i class="fas fa-money-check"></i></div>
                     <div class="text-center color-dark-gray h6 h-0">نحوه پرداخت</div>
-                </div><div class="state-splitter d-inline-block h-100 w-10"><hr></div>
-                <div class="state d-inline-block p-2">
+                </div>
+                <div class="state-splitter state-color border rounded d-inline-block h-100 w-10" data-tab-index="4"></div>
+                <div class="state-logo state-color d-inline-block p-2" data-tab-index="4">
                     <div class="d-flex justify-content-center color-light-gray p-3 h1"><i class="fas fa-clipboard-check"></i></div>
                     <div class="text-center color-dark-gray h6 h-0">اتمام خرید</div>
                 </div>
@@ -27,91 +28,106 @@
         </div>
     </div>
 
-{#    <div class="state-shopping-cart mt-3 p-5 color-dark-gray">#}
-{#        <div class="row m-5 h4">#}
-{#            <div class="col-md-4">کالا</div>#}
-{#            <div class="col-md-2 d-flex justify-content-center">قیمت</div>#}
-{#            <div class="col-md-2 d-flex justify-content-center">تعداد</div>#}
-{#            <div class="col-md-2 d-flex justify-content-center">جمع قیمت</div>#}
-{#            <div class="col-md-2"></div>#}
-{#        </div>#}
-{#        <div class="products-wrapper">#}
-{#            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">#}
-{#                <div class="col-md-4">#}
-{#                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">#}
-{#                    <span class="mr-3">کفش</span>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <span class="price h5">25000</span>#}
-{#                    <span class="h6 mr-2">تومان</span>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">#}
-{#                        <div class="increase-product-count cursor-pointer-hover m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>#}
-{#                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>#}
-{#                        <div class="decrease-product-count cursor-pointer-hover m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <span class="product-total-price h5">25000</span>#}
-{#                    <span class="h6 mr-2">تومان</span>#}
-{#                </div>#}
-{#                <div class="remove-product cursor-pointer-hover col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>#}
-{#            </div>#}
-{#            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">#}
-{#                <div class="col-md-4">#}
-{#                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">#}
-{#                    <span class="mr-3">کفش</span>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <span class="price h5">35000</span>#}
-{#                    <span class="h6 mr-2">تومان</span>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">#}
-{#                        <div class="increase-product-count cursor-pointer-hover m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>#}
-{#                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>#}
-{#                        <div class="decrease-product-count cursor-pointer-hover m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <span class="product-total-price h5">25000</span>#}
-{#                    <span class="h6 mr-2">تومان</span>#}
-{#                </div>#}
-{#                <div class="remove-product cursor-pointer-hover col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="total-price row mt-5 ml-2 color-dark-gray">#}
-{#            <div class="col-md-8"></div>#}
-{#            <div class="col-md-4 col-sm-12 border-shadow p-3">#}
-{#                <span class="float-right h5">مبلغ کل سبد خرید:</span>#}
-{#                <span class="float-left h5">#}
-{#                    <span class="price-string">2589000</span>#}
-{#                    <span>تومان</span>#}
-{#                </span>#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="row mt-5 ml-2 mr-2 color-dark-gray">#}
-{#            <a href="" class="simple-link col-md-2 text-center p-2 border-shadow color-dark-gray">#}
-{#                <span class="w-25 d-inline-block"><i class="fas fa-chevron-right"></i></span>#}
-{#                <span class="w-50 d-inline-block">صفحه‌ی اصلی</span>#}
-{#            </a>#}
-{#            <div class="col-md-8"></div>#}
-{#            <a href="" class="simple-link col-md-2 text-center p-2 border-shadow color-dark-gray">#}
-{#                <span class="w-50 d-inline-block">ثبت سفارش</span>#}
-{#                <span class="w-25 d-inline-block"><i class="fas fa-chevron-left"></i></span>#}
-{#            </a>#}
-{#        </div>#}
-{#    </div>#}
+    <div class="order-state active state-shopping-cart mt-3 p-5 color-dark-gray" data-tab-index="1">
+        <div class="row m-5 h4">
+            <div class="col-md-4">کالا</div>
+            <div class="col-md-2 d-flex justify-content-center">قیمت</div>
+            <div class="col-md-2 d-flex justify-content-center">تعداد</div>
+            <div class="col-md-2 d-flex justify-content-center">جمع قیمت</div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="products-wrapper">
+            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">
+                <div class="col-md-4">
+                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">
+                    <span class="mr-3">کفش</span>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <span class="price h5">25000</span>
+                    <span class="h6 mr-2">تومان</span>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">
+                        <div class="increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>
+                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>
+                        <div class="decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <span class="product-total-price h5">25000</span>
+                    <span class="h6 mr-2">تومان</span>
+                </div>
+                <div class="remove-product hover-pointer col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>
+            </div>
+            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">
+                <div class="col-md-4">
+                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">
+                    <span class="mr-3">کفش</span>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <span class="price h5">35000</span>
+                    <span class="h6 mr-2">تومان</span>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">
+                        <div class="increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>
+                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>
+                        <div class="decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <span class="product-total-price h5">25000</span>
+                    <span class="h6 mr-2">تومان</span>
+                </div>
+                <div class="remove-product hover-pointer col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>
+            </div>
+        </div>
+        <div class="total-price row mt-5 ml-2 color-dark-gray">
+            <div class="col-md-8"></div>
+            <div class="col-md-4 col-sm-12 border-shadow p-3">
+                <span class="float-right h5">مبلغ کل سبد خرید:</span>
+                <span class="float-left h5">
+                    <span class="price-string">2589000</span>
+                    <span>تومان</span>
+                </span>
+            </div>
+        </div>
+        <div class="row mt-5 ml-2 mr-2 color-dark-gray">
+            <a href="homepage" class="simple-link col-md-2 text-center p-2 border-shadow color-dark-gray">
+                <span class="col-md-2 d-inline-block"><i class="fas fa-chevron-right"></i></span>
+                <span class="col-md-9 d-inline-block">صفحه‌ی اصلی</span>
+            </a>
+            <div class="col-md-8"></div>
+            <div data-tab-index="2"
+                 class="state-changer simple-link hover-pointer col-md-2 text-center p-2 border-shadow color-dark-gray">
+                <span class="col-md-9 d-inline-block">ثبت سفارش</span>
+                <span class="col-md-2 d-inline-block"><i class="fas fa-chevron-left"></i></span>
+            </div>
+        </div>
+    </div>
 
-    <div class="state-shopping-cart mt-3 p-5 color-dark-gray">
+    <div class="order-state state-delivery-form mt-3 p-5 color-dark-gray" data-tab-index="2">
         <div class="row">
             <div class="col-md-5 p-2">
                 <div class="border-thin border-gray rounded p-2">
                     <div class="d-inline-block col-md-9">
                         <input type="text" placeholder="کد تخفیف" class="form-control text-font">
                     </div>
-                    <div class="btn btn-secondary d-inline-block col-md-3 float-left">اعمال تخفیف</div>
+                    <div class="btn btn-light d-inline-block col-md-3 float-left">اعمال تخفیف</div>
+                </div>
+                <div class="p-3 pr-5 pl-5 mt-4 h5 clear-fix border-bottom">
+                    <span class="float-right">مبلغ کل سبد خرید:</span>
+                    <span class="float-left">
+                        <span class="shopping-cart-price">54000</span>
+                        <span>تومان</span>
+                    </span>
+                </div>
+                <div class="p-3 pr-5 pl-5 mt-4 h5 clear-fix border-bottom">
+                    <span class="float-right">مبلغ قابل پرداخت:</span>
+                    <span class="float-left font-weight-bold">
+                        <span class="shopping-cart-price">54000</span>
+                        <span>تومان</span>
+                    </span>
                 </div>
             </div>
             <div class="col-md-7">
@@ -170,28 +186,72 @@
             </div>
         </div>
         <div class="row mt-5 ml-2 mr-2 color-dark-gray">
-            <a href="" class="simple-link col-md-2 text-center p-2 border-shadow color-dark-gray">
-                <span class="w-25 d-inline-block"><i class="fas fa-chevron-right"></i></span>
-                <span class="w-50 d-inline-block">سبد خرید</span>
-            </a>
+            <div data-tab-index="1"
+                 class="state-changer simple-link hover-pointer col-md-2 text-center p-2 border-shadow color-dark-gray">
+                <span class="col-md-2 d-inline-block"><i class="fas fa-chevron-right"></i></span>
+                <span class="col-md-9 d-inline-block">سبد خرید</span>
+            </div>
             <div class="col-md-8"></div>
-            <a href="" class="simple-link col-md-2 text-center p-2 border-shadow color-dark-gray">
-                <span class="w-50 d-inline-block">پرداخت</span>
-                <span class="w-25 d-inline-block"><i class="fas fa-chevron-left"></i></span>
-            </a>
+            <div data-tab-index="3"
+                 class="state-changer simple-link hover-pointer col-md-2 text-center p-2 border-shadow color-dark-gray">
+                <span class="col-md-9 d-inline-block">پرداخت</span>
+                <span class="col-md-2 d-inline-block"><i class="fas fa-chevron-left"></i></span>
+            </div>
         </div>
     </div>
 
-
-
+    <div class="order-state state-payment mt-3 p-5 color-dark-gray" data-tab-index="3">
+        <div class="row">
+            <div class="col-md-5 p-2">
+                <div class="border-thin border-gray rounded p-2">
+                    <div class="d-inline-block col-md-9">
+                        <input type="text" placeholder="کد تخفیف" class="form-control text-font">
+                    </div>
+                    <div class="btn btn-secondary d-inline-block col-md-3 float-left">اعمال تخفیف</div>
+                </div>
+                <div class="p-3 pr-5 pl-5 mt-4 h5 clear-fix border-bottom">
+                    <span class="float-right">مبلغ کل سبد خرید:</span>
+                    <span class="float-left">
+                        <span class="shopping-cart-price">54000</span>
+                        <span>تومان</span>
+                    </span>
+                </div>
+                <div class="p-3 pr-5 pl-5 mt-4 h5 clear-fix border-bottom">
+                    <span class="float-right">مبلغ قابل پرداخت:</span>
+                    <span class="float-left font-weight-bold">
+                        <span class="shopping-cart-price">54000</span>
+                        <span>تومان</span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-7 p-2">
+                <div class="border-shadow border-light rounded p-4">
+                    <div class="border border-success rounded d-flex justify-content-center align-items-center">
+                        <div class="payment-logo-wrapper m-4">
+                            <img src="{% static 'custom_templates/img/background.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 ml-2 mr-2 color-dark-gray">
+            <div data-tab-index="2"
+                 class="state-changer simple-link hover-pointer col-md-2 text-center p-2 border-shadow color-dark-gray">
+                <span class="col-md-2 d-inline-block"><i class="fas fa-chevron-right"></i></span>
+                <span class="col-md-9 d-inline-block">فرم ارسال</span>
+            </div>
+            <div class="col-md-8"></div>
+            <a href="" class="simple-link col-md-2 text-center p-2 border-shadow color-dark-gray">
+                <span class="col-md-9 d-inline-block">صفحه‌ی پرداخت</span>
+                <span class="col-md-2 d-inline-block"><i class="fas fa-chevron-left"></i></span>
+            </a>
+        </div>
+    </div>
 </div>
 
 <style>
     .shopping-cart{
         color: #45424e;
-    }
-    .shopping-cart .cursor-pointer-hover:hover{
-        cursor: pointer;
     }
     .shopping-cart .simple-link:hover{
         text-decoration: none;
@@ -212,7 +272,11 @@
         border-color: #dddddd;
     }
 
-    .shopping-cart .states-wrapper .state{
+    .shopping-cart .states-wrapper .passed, .shopping-cart .states-wrapper .passed div{
+        color: #8acddb;
+        border-color: #8acddb !important;
+    }
+    .shopping-cart .states-wrapper .state-logo{
         width: 17.5%;
     }
     .shopping-cart .states-wrapper .state-splitter{
@@ -224,6 +288,13 @@
     }
     .shopping-cart .states-wrapper .h-0{
         height: 0;
+    }
+
+    .shopping-cart .order-state{
+        display: none;
+    }
+    .shopping-cart .order-state.active{
+        display: block;
     }
 
     .shopping-cart .state-shopping-cart .products-wrapper img{
@@ -239,10 +310,48 @@
     .shopping-cart .state-shopping-cart .bg-dark-gray{
         background: #cccccc;
     }
+
+    .shopping-cart .state-payment .payment-logo-wrapper img{
+        width: 100px;
+        height: 100px;
+    }
 </style>
 
 <script>
     (function () {
+        let state_changers = document.querySelectorAll('.state-changer');
+        for(let i=0; i<state_changers.length; i++){
+            state_changers[i].addEventListener('click', function (event) {
+                let button = event.target.closest('.state-changer');
+                let tab_index = button.getAttribute('data-tab-index');
+                let target = document.querySelector('.order-state[data-tab-index="'+tab_index+'"]');
+                hide_states();
+                target.classList.add('active');
+                refresh_states_logos(tab_index);
+            });
+        }
+        function hide_states() {
+            let order_states = document.querySelectorAll('.order-state');
+            for(let i=0; i<order_states.length; i++){
+                order_states[i].classList.remove('active');
+            }
+        }
+        function refresh_states_logos(tab_index) {
+            let states_colors = document.querySelectorAll('.states-wrapper .state-color');
+            console.log(states_colors);
+            for(let i=0; i<states_colors.length; i++){
+                let state_tab_index = states_colors[i].getAttribute('data-tab-index');
+                if(parseInt(tab_index) >= parseInt(state_tab_index)){
+                    states_colors[i].classList.add('passed');
+                }
+                else{
+                    states_colors[i].classList.remove('passed');
+                }
+            }
+        }
+
+
+{#        state-shopping-cart#}
         fix_prices();
 
         let increase_buttons = document.querySelectorAll('.state-shopping-cart .increase-product-count');
