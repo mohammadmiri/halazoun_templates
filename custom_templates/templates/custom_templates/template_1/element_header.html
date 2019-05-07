@@ -68,11 +68,24 @@
 
 <script>
     $(document).ready(function(){
-        $('.header #search-form').submit(function (event) {
-            event.preventDefault();
-            var value = $('.header input[name=search]').val();
-            console.log(value);
-        });
+        let pre_sharp = window.location.href.split('#')[0];
+        $('a').each(function(){
+                $(this).attr('href', pre_sharp + $(this).attr('data-url'));
+            }
+        );
+
+        function redirect_to_search_page(){
+            let search_query = $('#search-form #search-query').value;
+            let pre_sharp = window.location.href.split('#')[0];
+            window.location.replace(pre_sharp + '#/search?query=' + search_query);
+        }
+        $('#search-form #search-button').click(redirect_to_search_page);
+        $('#search-form #search-query').keyup(function(event){
+            if(event.key === 'Enter'){
+                    redirect_to_search_page();
+                }
+            }
+        );
     });
 </script>
 
