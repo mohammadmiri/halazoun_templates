@@ -71,7 +71,6 @@
 <script>
     $(document).ready(function(){
         let bootstrap_classes = {2:'col-md-6', 3:'col-md-4', 4:'col-md-3'};
-        console.log('in console ');
         let active_column_number = parseInt("{{ column_num }}");
         for(let index in bootstrap_classes){
             $('.collection .collection-item').removeClass(bootstrap_classes[index]);
