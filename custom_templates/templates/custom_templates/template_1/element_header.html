@@ -2,16 +2,16 @@
     <div class="row wrapper">
         <div class="brand-name col-md-2 d-flex justify-content-center align-items-center p-3">{{ brand }}</div>
         <div class="col-md-8 p-3">
-            <form id="search-form" action="search" method="get">
+            <div id="search-form">
                 <div class="input-wrapper">
-                    <input name="query" placeholder="جست و جو" class="form-control text-font">
+                    <input placeholder="جست و جو" id="search-query" class="form-control text-font">
                 </div>
                 <div class="search-button-wrapper d-flex justify-content-center bg-info hover-pointer">
-                    <button type="submit" class="button-background-hidden hover-pointer">
+                    <button id='search-button' class="button-background-hidden hover-pointer">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
         <div class="col-md-2 d-flex justify-content-start align-items-center p-3">
             <div class="border-thin border-green p-2 hover-pointer rounded fg-green">
