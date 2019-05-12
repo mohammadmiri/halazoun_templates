@@ -75,7 +75,7 @@
         );
 
         function redirect_to_search_page(){
-            let search_query = $('#search-form #search-query').value;
+            let search_query = $('#search-form #search-query').val();
             let pre_sharp = window.location.href.split('#')[0];
             window.location.replace(pre_sharp + '#/search?query=' + search_query);
         }
