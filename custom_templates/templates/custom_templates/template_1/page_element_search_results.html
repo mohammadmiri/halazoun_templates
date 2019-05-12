@@ -23,33 +23,81 @@
 
 <script>
     (function () {
-        let product_str = '' +
+
+        $.ajax({
+            url: 'http://127.0.0.1:8000/shop/customer/search_products/',
+            data: {'shop_name':get_shop_name(), 'query':get_url_parameter('query')},
+            type: 'GET',
+            datatype: "json",
+            cache: false,
+            traditional: true,
+            header: {},
+            success: function (result) {
+                for(let i=0; i<result.length; i++){
+                    let product_element = get_product_element(result[i]['id'], result[i]['name'],
+                        result[i]['base_price'], result[i]['productimage_set']['image']);
+                    $('.products-wrapper').append(product_element);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log('error '+xhr.responseText + ' ' + status + ' ' + error);
+            }
+        });
+    })();
+
+    function get_product_element(id, name, price, img_url){
+        let pre_sharp = window.location.href.split('#')[0];
+        let url = pre_sharp + '#/product/?product_id=' + id;
+        return '' +
             '<div class="product d-inline-block w-25">' +
             '    <div class="info-wrapper m-3 p-3 hover-pointer">' +
             '        <div class="d-flex justify-content-center">' +
-            '            <img src="{% static 'custom_templates/img/background.jpg' %}">' +
+            '            <img src="'+ img_url +'">' +
             '        </div>' +
             '        <div>' +
-            '            <div class="m-2 text-center">کفش</div>' +
+            '            <div class="m-2 text-center">'+ name +'</div>' +
             '            <div class="m-2 text-center">' +
-            '                <span>25000</span>' +
+            '                <span>'+ price +'</span>' +
             '                <span>تومان</span>' +
             '            </div>' +
             '        </div>' +
             '        <div class="d-flex justify-content-center align-items-center">' +
-            '            <a href="" class="btn btn-info m-1">مشاهده و خرید</a>' +
+            '            <a href="'+ url +'" class="btn btn-info m-1">مشاهده و خرید</a>' +
             '        </div>' +
             '    </div>' +
             '</div>';
-        for(let i=0; i<10; i++) {
-            let product_element = create_element_from_html(product_str);
-            document.querySelector('.products-wrapper').appendChild(product_element);
-        }
-    })();
-
-    function create_element_from_html(html_string) {
-        var div = document.createElement('div');
-        div.innerHTML = html_string.trim();
-        return div.firstChild;
     }
+
+    function get_shop_name(){
+        let url_pre_sharp = window.location.href.split('#')[0];
+        let origin = window.location.origin;
+        return trim_substring(url_pre_sharp.substr(origin.length, url_pre_sharp.length), '/');
+    }
+
+    function trim_substring(string, substring){
+        if(string.length < substring.length){
+            return string;
+        }
+        let pre_string = string.substring(0, substring.length);
+        if(pre_string === substring){
+            string = string.substring(substring.length, string.length);
+        }
+        if(string.length < substring.length){
+            return string;
+        }
+        let post_string = string.substring(string.length - substring.length, string.length);
+        if(post_string === substring){
+            return string.substring(0, string.length - substring.length);
+        }
+        return string;
+    }
+
+    function get_url_parameter(name) {
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(decodeURI(window.location.href));
+            return results[1] || 0;
+        };
+        return $.urlParam(name);
+    }
+
 </script>
