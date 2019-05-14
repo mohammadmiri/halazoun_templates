@@ -20,6 +20,11 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col menu-wrapper text-right" dir="rtl">
+
+        </div>
+    </div>
 </div>
 
 <style>
@@ -64,6 +69,15 @@
     .border-green{
         border-color: #1abc9c;
     }
+    .menu-wrapper{
+
+    }
+    .menu-wrapper a{
+        text-decoration: none;
+    }
+    .top-level-menu-item:hover{
+        cursor: pointer;
+    }
 </style>
 
 <script>
@@ -75,7 +89,6 @@
                 }
             }
         );
-
         function redirect_to_search_page(){
             let search_query = $('#search-form #search-query').val();
             let pre_sharp = window.location.href.split('#')[0];
@@ -88,6 +101,118 @@
                 }
             }
         );
+
+        function get_shop_name(){
+            let url_pre_sharp = window.location.href.split('#')[0];
+            let origin = window.location.origin;
+            return trim_substring(url_pre_sharp.substr(origin.length, url_pre_sharp.length), '/');
+        }
+
+        function trim_substring(string, substring){
+            if(string.length < substring.length){
+                return string;
+            }
+            let pre_string = string.substring(0, substring.length);
+            if(pre_string === substring){
+                string = string.substring(substring.length, string.length);
+            }
+            if(string.length < substring.length){
+                return string;
+            }
+            let post_string = string.substring(string.length - substring.length, string.length);
+            if(post_string === substring){
+                return string.substring(0, string.length - substring.length);
+            }
+            return string;
+        }
+
+        // menu
+
+        $.ajax({
+            url: 'http://127.0.0.1:8000/template/get_menu/',
+            data: {'shop_name':get_shop_name()},
+            type: 'GET',
+            datatype: "json",
+            cache: false,
+            traditional: true,
+            header: {},
+            success: function (data, textStatus, xhr) {
+                console.log('in success', data);
+                console.log('xhr: ', xhr);
+                if(xhr.status < 400){
+                    let colors = [
+                        '#000fff',
+                        'red',
+                        'green',
+                    ];
+                    console.log('in if');
+                    let menu_html = render_menu(JSON.parse(data), 20, 0, colors);
+                    console.log('menu_item: ',menu_html);
+                    add_menu_to_page(menu_html);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log('error '+xhr.responseText + ' ' + status + ' ' + error);
+            }
+        });
+
+        function add_menu_to_page(menu_html){
+            $(".menu-wrapper").append($(menu_html));
+            $(".top-level-menu-item").on('click', function(event){
+                console.log('event', $(this).attr('menu-item-id'));
+                $(".submenu-wrapper [menu-item-id="+$(this).attr('menu-item-id')+"]")
+            });
+        }
+
+        function create_modal(body){
+            let modal = $()
+        }
+
+        function render_menu_bar(menu){
+            let menu_html = '';
+            for(let i=0;i<menu.length;i++){
+                menu_html +=
+                    "<div class=\"d-inline-block top-level-menu-item\" menu-item-id="+menu[i].id+">" +
+                    "<div>" +
+                    menu[i].name +
+                    "</div>";
+                menu_html += '</div>';
+            }
+            return menu_html;
+        }
+
+        function render_menu(menu, indentation, level, colors){
+            let menu_html = {};
+            for(let i=0;i<menu.length;i++){
+                if(menu[i].children !== undefined) {
+                    menu_html[menu[i].id] = "<div class=\"d-none submenu-wrapper\" menu-item-id="+menu[i].id+">";
+                    menu_html[menu[i].id] += render_submenu(menu[i].children, indentation, level + 1, colors);
+                    menu_html[menu[i].id] += "</div>";
+                }
+            }
+            return menu_html;
+        }
+
+        function render_submenu(menu, indentation, level, colors){
+            let menu_html = '';
+            for(let i=0;i<menu.length;i++){
+                menu_html += render_menu_item(menu[i], indentation, level, colors);
+                if(menu[i].children !== undefined){
+                    menu_html += render_submenu(menu[i].children, indentation, level+1, colors);
+                }
+            }
+            console.log('render menu_html:', menu_html);
+            return menu_html;
+        }
+
+        function render_menu_item(menu_item, indentation, level, colors){
+            console.log('colors: ', colors[level], colors);
+            return "<div class=\"text-right\" style=\"padding-right:"+level*indentation+"px;\">"+
+                    "<a href=# style=\"color:"+colors[level]+"\">"+menu_item.name+
+                    "</a>"+
+                    "</div>";
+        }
+
     });
 </script>
 
