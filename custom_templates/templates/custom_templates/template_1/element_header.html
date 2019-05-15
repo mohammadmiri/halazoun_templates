@@ -21,8 +21,25 @@
         </div>
     </div>
     <div class="row">
-        <div class="col menu-wrapper text-right" dir="rtl">
+        <div class="col menu-wrapper text-right bg-gray" dir="rtl">
 
+        </div>
+    </div>
+
+    <div class="modal fade" id="menu-modal" data-toggle="modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+
+                <div class="modal-footer">
+                    <div type="button" class="btn bg-purple" data-dismiss="modal">بستن</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -69,15 +86,59 @@
     .border-green{
         border-color: #1abc9c;
     }
+    .purple{
+        color: #5c6ac4;
+    }
+    .bg-purple{
+        background-color: #5c6ac4;
+        color: white;
+    }
+    .gray{
+        color: #888888;
+    }
+    .bg-gray{
+        background-color: #888888;
+    }
+    .icon-sm{
+        font-size: 10px;
+    }
+    .red{
+        color: red;
+    }
+    .white{
+        color: white;
+    }
+    .icon-wrapper-width-sm{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .h-0{
+        height: 0;
+    }
+    .w-0{
+        width: 0;
+    }
     .menu-wrapper{
-
+        border-bottom: solid 1px #aaaaaa;
+        border-top: solid 1px #aaaaaa;
+        background-color: #616161;
+    }
+    .top-level-menu-item{
+        border-bottom: solid 1px red;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-right: 10px;
     }
     .menu-wrapper a{
         text-decoration: none;
     }
-    .top-level-menu-item:hover{
+    .modal a{
+        text-decoration: none;
+    }
+    .pointer-hover:hover{
         cursor: pointer;
     }
+
 </style>
 
 <script>
@@ -130,25 +191,24 @@
 
         $.ajax({
             url: 'http://127.0.0.1:8000/template/get_menu/',
-            data: {'shop_name':get_shop_name()},
+            data: {'shop_name': 'bamilo'},
             type: 'GET',
             datatype: "json",
             cache: false,
             traditional: true,
             header: {},
-            success: function (data, textStatus, xhr) {
-                console.log('in success', data);
-                console.log('xhr: ', xhr);
+            success: function (data,  textStatus, xhr) {
                 if(xhr.status < 400){
                     let colors = [
-                        '#000fff',
-                        'red',
-                        'green',
+                        '#474747',
+                        '#666666',
+                        '#666666',
+                        '#666666',
+                        '#666666',
                     ];
-                    console.log('in if');
-                    let menu_html = render_menu(JSON.parse(data), 20, 0, colors);
-                    console.log('menu_item: ',menu_html);
-                    add_menu_to_page(menu_html);
+                    let menu_bar_html = render_menu_bar(JSON.parse(data));
+                    let submenu_html = render_submenu(JSON.parse(data), 20, 0, colors);
+                    add_menu_to_page(menu_bar_html, submenu_html);
                 }
             },
             error: function (xhr, status, error) {
@@ -156,39 +216,39 @@
             }
         });
 
-        function add_menu_to_page(menu_html){
+        function add_menu_to_page(menu_html, submenu_html){
             $(".menu-wrapper").append($(menu_html));
+            create_modal(submenu_html);
             $(".top-level-menu-item").on('click', function(event){
-                console.log('event', $(this).attr('menu-item-id'));
-                $(".submenu-wrapper [menu-item-id="+$(this).attr('menu-item-id')+"]")
+                $('#menu-modal').modal();
+            });
+            $(".inside-menu-item").on('click', function(event){
+                let menu_item_id = $(this).attr('menu-item-id');
+                if($(".submenu-wrapper[menu-item-id="+menu_item_id+"]").hasClass('show')){
+                    $(".inside-menu-item[menu-item-id="+menu_item_id+"] .fa-plus").removeClass('d-none');
+                    $(".inside-menu-item[menu-item-id="+menu_item_id+"] .fa-times").addClass('d-none');
+                }
+                else{
+                    $(".inside-menu-item[menu-item-id="+menu_item_id+"] .fa-plus").addClass('d-none');
+                    $(".inside-menu-item[menu-item-id="+menu_item_id+"] .fa-times").removeClass('d-none');
+                }
+                $(".submenu-wrapper[menu-item-id="+menu_item_id+"]").collapse('toggle');
             });
         }
 
         function create_modal(body){
-            let modal = $()
+            $("#menu-modal .modal-body").first().html($(body));
         }
 
         function render_menu_bar(menu){
             let menu_html = '';
             for(let i=0;i<menu.length;i++){
                 menu_html +=
-                    "<div class=\"d-inline-block top-level-menu-item\" menu-item-id="+menu[i].id+">" +
-                    "<div>" +
+                    "<div class=\"d-inline-block top-level-menu-item pr-2 pl-2\" menu-item-id="+menu[i].id+">" +
+                    "<div class=\"white\">" +
                     menu[i].name +
                     "</div>";
                 menu_html += '</div>';
-            }
-            return menu_html;
-        }
-
-        function render_menu(menu, indentation, level, colors){
-            let menu_html = {};
-            for(let i=0;i<menu.length;i++){
-                if(menu[i].children !== undefined) {
-                    menu_html[menu[i].id] = "<div class=\"d-none submenu-wrapper\" menu-item-id="+menu[i].id+">";
-                    menu_html[menu[i].id] += render_submenu(menu[i].children, indentation, level + 1, colors);
-                    menu_html[menu[i].id] += "</div>";
-                }
             }
             return menu_html;
         }
@@ -198,19 +258,37 @@
             for(let i=0;i<menu.length;i++){
                 menu_html += render_menu_item(menu[i], indentation, level, colors);
                 if(menu[i].children !== undefined){
+                    menu_html += "<div class=\"submenu-wrapper collapse\" menu-item-id="+menu[i].id+">";
                     menu_html += render_submenu(menu[i].children, indentation, level+1, colors);
+                    menu_html += "</div>";
                 }
             }
-            console.log('render menu_html:', menu_html);
             return menu_html;
         }
 
         function render_menu_item(menu_item, indentation, level, colors){
-            console.log('colors: ', colors[level], colors);
-            return "<div class=\"text-right\" style=\"padding-right:"+level*indentation+"px;\">"+
-                    "<a href=# style=\"color:"+colors[level]+"\">"+menu_item.name+
-                    "</a>"+
-                    "</div>";
+            if(menu_item.children !== undefined){
+                return  '<div class="font-weight-bold mb-2 text-right pointer-hover inside-menu-item"'+
+                            'style="padding-right:'+level*indentation+'px;" menu-item-id="'+menu_item.id+'">'+
+                            '<div class="icon-wrapper-width-sm d-inline-block bg-danger">'+
+                                '<div class="w-0 h-0 bg-info">'+
+                                    '<i class="icon-sm gray fas fa-plus"></i>'+
+                                    '<i class="icon-sm gray fas fa-times d-none"></i>'+
+                                '</div>'+
+                            '</div>'+
+                            '<a style="color:'+colors[level]+'">'+menu_item.name+
+                            '</a>'+
+                        '</div>';
+            }
+            else{
+                return  '<div class="mb-2 text-right pointer-hover inside-menu-item"' +
+                            'style="padding-right:'+level*indentation+'px;" menu-item-id='+menu_item.id+'>'+
+                            '<div class="icon-wrapper-width-sm d-inline-block bg-danger">'+
+                            '</div>'+
+                            '<a href="http://www.google.com" style="color:'+colors[level]+'">'+menu_item.name+
+                            '</a>'+
+                        '</div>';
+            }
         }
 
     });
