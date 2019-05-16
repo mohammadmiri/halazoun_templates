@@ -1,30 +1,60 @@
 <div class="header">
-    <div class="row wrapper">
-        <div class="brand-name col-md-2 d-flex justify-content-center align-items-center p-3">{{ brand }}</div>
-        <div class="col-md-8 p-3">
+
+    {#  desktop only  #}
+    <div class="row wrapper d-none d-sm-none d-xs-none d-md-flex">
+        <div class="brand-name col col-md-2 d-flex justify-content-center align-items-center p-3">{{ brand }}</div>
+        <div class="col col-md-8 p-3">
             <div id="search-form">
                 <div class="input-wrapper">
                     <input placeholder="جست و جو" id="search-query" class="form-control text-font">
                 </div>
-                <div class="search-button-wrapper d-flex justify-content-center bg-info hover-pointer">
+                <div class="search-button-wrapper d-flex justify-content-center btn-danger bg-red hover-pointer">
                     <button id='search-button' class="button-background-hidden hover-pointer">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="col-md-2 d-flex justify-content-start align-items-center p-3">
-            <div class="border-thin border-green p-2 hover-pointer rounded fg-green">
-                <span class="h5 text-center"><i class="fas fa-shopping-basket"></i></span>
-                <span class="h6 text-center mr-3">سبد خرید</span>
+        <div class="col col-md-2 d-flex justify-content-start align-items-center p-3">
+            <div class="border-thin border-green p-2 hover-pointer rounded border-info">
+                <span class="h5 text-center"><i class="fas fa-shopping-basket text-info"></i></span>
+                <span class="h6 text-center mr-3 text-info">سبد خرید</span>
+                <span class="badge badge-pill badge-info d-inline-block mr-3 ">5</span>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row d-none d-sm-none d-xs-none d-md-block">
         <div class="col menu-wrapper text-right bg-gray" dir="rtl">
-
         </div>
     </div>
+    {#  end of desktop only  #}
+
+    {#  mobile only  #}
+    <div class="row d-flex d-md-none d-lg-none">
+        <div class="menu-bar-icon col col-md-2 d-flex justify-content-center align-items-center pt-4 pl-4 pb-3 pr-1">
+            <i class="fas fa-bars h4"></i>
+        </div>
+        <div class="brand-name col col-md-2 d-flex justify-content-center align-items-center p-3 h6">{{ brand }}</div>
+        <div class="col col-sm-2 d-flex justify-content-end align-items-left p-3">
+            <div class="border-thin border-green p-2 hover-pointer rounded border-info">
+                <span class="h5 text-center"><i class="fas fa-shopping-basket text-info"></i></span>
+                <span class="badge badge-pill badge-info d-inline-block mr-3 ">5</span>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex d-md-none d-lg-none">
+        <div id="search-form" class="w-100 p-2">
+            <div class="input-wrapper">
+                <input placeholder="جست و جو" id="search-query" class="form-control text-font">
+            </div>
+            <div class="search-button-wrapper d-flex justify-content-center btn-danger bg-red hover-pointer">
+                <button id='search-button' class="button-background-hidden hover-pointer">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    {#  end of mobile only  #}
 
     <div class="modal fade" id="menu-modal" data-toggle="modal">
         <div class="modal-dialog" role="document">
@@ -103,7 +133,10 @@
         font-size: 10px;
     }
     .red{
-        color: red;
+        color: #ef5661;
+    }
+    .bg-red{
+        background-color: #ef5661;
     }
     .white{
         color: white;
@@ -129,14 +162,15 @@
         padding-bottom: 5px;
         margin-right: 10px;
     }
-    .menu-wrapper a{
-        text-decoration: none;
-    }
-    .modal a{
-        text-decoration: none;
-    }
     .pointer-hover:hover{
         cursor: pointer;
+    }
+    a.none-decoration{
+        text-decoration: none;
+    }
+    a.none-decoration-hover:hover{
+        text-decoration: none;
+        color:white;
     }
 
 </style>
@@ -218,8 +252,11 @@
 
         function add_menu_to_page(menu_html, submenu_html){
             $(".menu-wrapper").append($(menu_html));
-            create_modal(submenu_html);
-            $(".top-level-menu-item").on('click', function(event){
+            $("#menu-modal .modal-body").first().html($(body));
+            $(".top-level-menu-item-click").on('click', function(event){
+                $('#menu-modal').modal();
+            });
+            $(".menu-bar-icon").on('click', function(event){
                 $('#menu-modal').modal();
             });
             $(".inside-menu-item").on('click', function(event){
@@ -236,19 +273,25 @@
             });
         }
 
-        function create_modal(body){
-            $("#menu-modal .modal-body").first().html($(body));
-        }
-
         function render_menu_bar(menu){
             let menu_html = '';
             for(let i=0;i<menu.length;i++){
-                menu_html +=
-                    "<div class=\"d-inline-block top-level-menu-item pr-2 pl-2\" menu-item-id="+menu[i].id+">" +
-                    "<div class=\"white\">" +
-                    menu[i].name +
-                    "</div>";
-                menu_html += '</div>';
+                if(menu[i].children !== undefined) {
+                    menu_html +=
+                        "<div class=\"d-inline-block top-level-menu-item top-level-menu-item-click pointer-hover pr-2 pl-2\" menu-item-id=" + menu[i].id + ">" +
+                        "<div class=\"white\">" +
+                        menu[i].name +
+                        "</div>" +
+                        "</div>";
+                }
+                else{
+                    menu_html +=
+                        "<div class=\"d-inline-block top-level-menu-item pointer-hover pr-2 pl-2\" menu-item-id=" + menu[i].id + ">" +
+                        "<a class=\"white none-decoration none-decoration-hover\" href=\"http://www.google.com\">" +
+                        menu[i].name +
+                        "</a>" +
+                        "</div>";
+                }
             }
             return menu_html;
         }
@@ -272,11 +315,11 @@
                             'style="padding-right:'+level*indentation+'px;" menu-item-id="'+menu_item.id+'">'+
                             '<div class="icon-wrapper-width-sm d-inline-block bg-danger">'+
                                 '<div class="w-0 h-0 bg-info">'+
-                                    '<i class="icon-sm gray fas fa-plus"></i>'+
-                                    '<i class="icon-sm gray fas fa-times d-none"></i>'+
+                                    '<i class="icon-sm red fas fa-plus"></i>'+
+                                    '<i class="icon-sm red fas fa-times d-none"></i>'+
                                 '</div>'+
                             '</div>'+
-                            '<a style="color:'+colors[level]+'">'+menu_item.name+
+                            '<a class="none-decoration" style="color:'+colors[level]+'">'+menu_item.name+
                             '</a>'+
                         '</div>';
             }
@@ -285,7 +328,7 @@
                             'style="padding-right:'+level*indentation+'px;" menu-item-id='+menu_item.id+'>'+
                             '<div class="icon-wrapper-width-sm d-inline-block bg-danger">'+
                             '</div>'+
-                            '<a href="http://www.google.com" style="color:'+colors[level]+'">'+menu_item.name+
+                            '<a class="none-decoration none-decoration-hover" href="http://www.google.com" style="color:'+colors[level]+'">'+menu_item.name+
                             '</a>'+
                         '</div>';
             }
