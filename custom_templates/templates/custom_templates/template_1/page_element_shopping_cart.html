@@ -36,51 +36,51 @@
             <div class="col-md-2 d-flex justify-content-center">جمع قیمت</div>
             <div class="col-md-2"></div>
         </div>
-        <div class="products-wrapper">
-            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">
-                <div class="col-md-4">
-                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">
-                    <span class="mr-3">کفش</span>
-                </div>
-                <div class="col-md-2 d-flex align-items-center justify-content-center">
-                    <span class="price h5">25000</span>
-                    <span class="h6 mr-2">تومان</span>
-                </div>
-                <div class="col-md-2 d-flex align-items-center justify-content-center">
-                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">
-                        <div class="increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>
-                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>
-                        <div class="decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>
-                    </div>
-                </div>
-                <div class="col-md-2 d-flex align-items-center justify-content-center">
-                    <span class="product-total-price h5">25000</span>
-                    <span class="h6 mr-2">تومان</span>
-                </div>
-                <div class="remove-product hover-pointer col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>
-            </div>
-            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">
-                <div class="col-md-4">
-                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">
-                    <span class="mr-3">کفش</span>
-                </div>
-                <div class="col-md-2 d-flex align-items-center justify-content-center">
-                    <span class="price h5">35000</span>
-                    <span class="h6 mr-2">تومان</span>
-                </div>
-                <div class="col-md-2 d-flex align-items-center justify-content-center">
-                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">
-                        <div class="increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>
-                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>
-                        <div class="decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>
-                    </div>
-                </div>
-                <div class="col-md-2 d-flex align-items-center justify-content-center">
-                    <span class="product-total-price h5">25000</span>
-                    <span class="h6 mr-2">تومان</span>
-                </div>
-                <div class="remove-product hover-pointer col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>
-            </div>
+        <div class="products-wrapper" id="shopping_cart_product_wrapper">
+{#            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">#}
+{#                <div class="col-md-4">#}
+{#                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">#}
+{#                    <span class="mr-3">کفش</span>#}
+{#                </div>#}
+{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
+{#                    <span class="price h5">25000</span>#}
+{#                    <span class="h6 mr-2">تومان</span>#}
+{#                </div>#}
+{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
+{#                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">#}
+{#                        <div class="increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>#}
+{#                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>#}
+{#                        <div class="decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
+{#                    <span class="product-total-price h5">25000</span>#}
+{#                    <span class="h6 mr-2">تومان</span>#}
+{#                </div>#}
+{#                <div class="remove-product hover-pointer col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>#}
+{#            </div>#}
+{#            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">#}
+{#                <div class="col-md-4">#}
+{#                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">#}
+{#                    <span class="mr-3">کفش</span>#}
+{#                </div>#}
+{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
+{#                    <span class="price h5">35000</span>#}
+{#                    <span class="h6 mr-2">تومان</span>#}
+{#                </div>#}
+{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
+{#                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">#}
+{#                        <div class="increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>#}
+{#                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>#}
+{#                        <div class="decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
+{#                    <span class="product-total-price h5">25000</span>#}
+{#                    <span class="h6 mr-2">تومان</span>#}
+{#                </div>#}
+{#                <div class="remove-product hover-pointer col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>#}
+{#            </div>#}
         </div>
         <div class="total-price row mt-5 ml-2 color-dark-gray">
             <div class="col-md-8"></div>
@@ -243,6 +243,12 @@
     </div>
 </div>
 
+<div id="loading-icon">
+    <div class="d-flex loading-icon w-100 h-100 justify-content-center align-items-center">
+        <svg width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: none;"><circle cx="50" cy="50" r="39.9335" fill="none" ng-attr-stroke="{{config.c1}}" ng-attr-stroke-width="{{config.width}}" stroke="#ef5661" stroke-width="2"><animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="1" keySplines="0 0.2 0.8 1" begin="-0.5s" repeatCount="indefinite"></animate><animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="1" keySplines="0.2 0 0.8 1" begin="-0.5s" repeatCount="indefinite"></animate></circle><circle cx="50" cy="50" r="25.3164" fill="none" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-width="{{config.width}}" stroke="#888888" stroke-width="2"><animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="1" keySplines="0 0.2 0.8 1" begin="0s" repeatCount="indefinite"></animate><animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="1" keySplines="0.2 0 0.8 1" begin="0s" repeatCount="indefinite"></animate></circle></svg>
+    </div>
+</div>
+
 <style>
     .shopping-cart{
         color: #45424e;
@@ -309,9 +315,29 @@
         width: 100px;
         height: 100px;
     }
+    .loading-icon{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 500;
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+    .hidden-item{
+        display: none;
+    }
 </style>
 
 <script>
+    show_loading();
+    let base_url = 'http://127.0.0.1:8000/';
+    let shoppping_cart_session_key = 'shopping_cart_session';
+    let session = localStorage.getItem(shoppping_cart_session_key);
+    let shopping_cart = undefined;
+
+    function get_shop_name(){
+        return 'bamilo';
+    }
+
     (function () {
         let state_changers = document.querySelectorAll('.state-changer');
         for(let i=0; i<state_changers.length; i++){
@@ -332,7 +358,6 @@
         }
         function refresh_states_logos(tab_index) {
             let states_colors = document.querySelectorAll('.states-wrapper .state-color');
-            console.log(states_colors);
             for(let i=0; i<states_colors.length; i++){
                 let state_tab_index = states_colors[i].getAttribute('data-tab-index');
                 if(parseInt(tab_index) >= parseInt(state_tab_index)){
@@ -345,59 +370,144 @@
         }
 
 
-{#        state-shopping-cart#}
+        {#   state-shopping-cart#}
         fix_prices();
 
-        let increase_buttons = document.querySelectorAll('.state-shopping-cart .increase-product-count');
-        for(let i=0; i<increase_buttons.length; i++) {
-            increase_buttons[i].addEventListener('click',
-                function (event) {
-                    change_product_count(event.target, 1);
-                }
-            );
-        }
-        let decrease_buttons = document.querySelectorAll('.state-shopping-cart .decrease-product-count');
-        for(let i=0; i<decrease_buttons.length; i++) {
-            decrease_buttons[i].addEventListener('click',
-                function (event) {
-                    change_product_count(event.target, -1);
-                }
-            );
-        }
-        let remove_buttons = document.querySelectorAll('.state-shopping-cart .remove-product');
-        for(let i=0; i<remove_buttons.length; i++){
-            remove_buttons[i].addEventListener('click',
-                function (event) {
-                    let product = event.target.closest('.product');
-                    product.parentElement.removeChild(product);
-                    fix_prices();
-                }
-            );
-        }
-        let product_counts = document.querySelectorAll('.state-shopping-cart .products-wrapper .product-count-input');
+        $('#shopping_cart_product_wrapper').on('click', '.increase-product-count', function (event) {
+            let product = $(event.target).closest('.product');
+            update_shopping_cart_product(get_shop_name(), session, product.attr('product-id'), 1);
+        });
+        $('#shopping_cart_product_wrapper').on('click', '.decrease-product-count', function (event) {
+            let product = $(event.target).closest('.product');
+            update_shopping_cart_product(get_shop_name(), session, product.attr('product-id'), -1);
+        });
+        $('#shopping_cart_product_wrapper').on('click', '.remove-product', function (event) {
+            let product = event.target.closest('.product');
+            product.parentElement.removeChild(product);
+            fix_prices();
+        });
+
+        let product_counts = $('.state-shopping-cart .products-wrapper .product-count-input');
         for(let i=0; i<product_counts.length; i++){
-            product_counts[i].addEventListener('change', fix_prices);
+            product_counts[i].on('change', fix_prices);
         }
     })();
+
     function change_product_count(button_element, amount) {
         let wrapper_element = button_element.closest('.product-count');
-        let product_count_input_element = wrapper_element.querySelector('.product-count-input');
+        let product_count_input_element = wrapper_element.find('.product-count-input');
         let current_count = parseInt(product_count_input_element.value);
         if(current_count > 0 || amount >= 0){
             product_count_input_element.value = current_count + amount;
             fix_prices();
         }
     }
-    function fix_prices() {
-        let products = document.querySelectorAll('.state-shopping-cart .products-wrapper .product');
-        let sum = 0;
-        for(let i=0; i<products.length; i++){
-            let count = parseInt(products[i].querySelector('.product-count-input').value);
-            let price = parseInt(products[i].querySelector('.price').innerHTML);
-            products[i].querySelector('.product-total-price').innerHTML = count * price;
-            sum += count * price;
-        }
-        document.querySelector('.state-shopping-cart .total-price .price-string').innerHTML = sum;
-    }
-</script>
 
+    function fix_prices() {
+        let sum = 0;
+        $('.state-shopping-cart .products-wrapper .product').each(function(index ,value){
+            let count = parseInt($(this).find('.product-count-input').val());
+            let price = parseInt($(this).find('.price').text());
+            $(this).find('.product-total-price').text(count * price);
+            sum += count * price;
+        });
+        $('.state-shopping-cart .total-price .price-string').text(sum);
+    }
+
+    function hide_loading(){
+        $('#loading-icon').addClass('hidden-item');
+    }
+
+    function show_loading(){
+        $('#loading-icon').removeClass('hidden-item');
+    }
+
+    // initializing shopping cart
+
+    let product_item_string = "<div product-id='' class='product row m-2 p-2 border-thin border-transparent border-shadow rounded'>"+
+                "<div class='col-md-4'>" +
+                    "<img id='image' class='rounded'>" +
+                    "<span id='name' class='mr-3'>کفش</span>"+
+                "</div>"+
+                "<div class='col-md-2 d-flex align-items-center justify-content-center'>"+
+                    "<span id='price' class='price h5'></span>"+
+                    "<span class='h6 mr-2'>تومان</span> " +
+                "</div>"+
+                "<div class='col-md-2 d-flex align-items-center justify-content-center'>"+
+                    "<div class='product-count rounded d-flex align-items-center bg-dark-gray'>"+
+                        "<div class='increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2'><i class='fas fa-plus'></i></div>"+
+                        "<div class='m-1 h3'><input id='number' class='product-count-input form-control text-center text-font bg-light-gray' type='text'' value='5'></div>"+
+                        "<div class='decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2'><i class='fas fa-minus'></i></div>"+
+                    "</div>"+
+                "</div>"+
+                "<div class='col-md-2 d-flex align-items-center justify-content-center'>"+
+                    "<span id='total_price' class='product-total-price h5'>25000</span>"+
+                    "<span class='h6 mr-2'>تومان</span>"+
+                "</div>"+
+                "<div class='remove-product hover-pointer col-md-2 d-flex align-items-center h4'><i class='far fa-trash-alt'></i></div>"+
+            "</div>";
+
+
+    $.ajax({
+            url: base_url+'shop/customer/get_shopping_cart/',
+            data: {'shop_name': 'bamilo', 'session': session},
+            type: 'GET',
+            datatype: "json",
+            cache: false,
+            traditional: true,
+            header: {},
+            success: function (data,  textStatus, xhr) {
+                if(xhr.status < 400){
+                    shopping_cart = data.shopping_cart;
+                    add_to_shopping_cart_wrapper(shopping_cart, product_item_string);
+                    hide_loading();
+                }
+            },
+            error: function (xhr, status, error) {
+                hide_loading();
+            }
+        });
+
+    function add_to_shopping_cart_wrapper(shopping_cart, product_item_string){
+        $('#shopping_cart_product_wrapper').empty();
+        for(let i=0; i<shopping_cart.shoppingcartproduct_set.length; i++){
+            let product_item = $(product_item_string);
+            product_item.attr({'product-id': shopping_cart.shoppingcartproduct_set[i].product.id});
+            product_item.find('#image').attr({'src': shopping_cart.shoppingcartproduct_set[i].product.image.image});
+            product_item.find('#name').text(shopping_cart.shoppingcartproduct_set[i].product.name);
+            product_item.find('#number').val(shopping_cart.shoppingcartproduct_set[i].number);
+            if(shopping_cart.shoppingcartproduct_set[i].product.has_discount){
+                product_item.find('#price').text(shopping_cart.shoppingcartproduct_set[i].product.discount_price);
+            }
+            else{
+                product_item.find('#price').text(shopping_cart.shoppingcartproduct_set[i].product.base_price);
+            }
+            $('#shopping_cart_product_wrapper').append(product_item);
+        }
+        fix_prices();
+    }
+
+    function update_shopping_cart_product(shop_name, session, product_id, amount){
+        show_loading();
+        $.ajax({
+            url: base_url+'shop/customer/add_to_shopping_cart/',
+            data: {'shop_name': 'bamilo', 'session': session, 'product_id':product_id, 'amount': amount},
+            type: 'POST',
+            datatype: "json",
+            cache: false,
+            traditional: true,
+            header: {},
+            success: function (data,  textStatus, xhr) {
+                if(xhr.status < 400){
+                    shopping_cart = data.shopping_cart;
+                    add_to_shopping_cart_wrapper(shopping_cart, product_item_string);
+                    hide_loading();
+                }
+            },
+            error: function (xhr, status, error) {
+                hide_loading();
+            }
+        });
+    }
+
+</script>

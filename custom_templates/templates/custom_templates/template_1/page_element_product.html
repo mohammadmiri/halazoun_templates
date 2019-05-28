@@ -39,7 +39,9 @@
             </div>
             <div class="text-center m-4 h3 font-weight-bold">کتاب آموزش آشپزی ایرانی</div>
             <div class="text-center text-danger m-3">ناموجود</div>
-            <div class="d-flex justify-content-center p-3"><div class="btn btn-success">افزودن به سبد خرید</div></div>
+            <div class="d-flex justify-content-center p-3"><div class="btn btn-success" id="add_to_shopping_cart">
+                افزودن به سبد خرید
+            </div></div>
             <div class="d-flex justify-content-center m-3">
                 <a href="" class="m-2 h4"><i class="fab fa-telegram-plane"></i></a>
                 <a href="" class="m-2 h4"><i class="fab fa-instagram"></i></a>
@@ -148,6 +150,50 @@
 </style>
 
 <script>
+
+    $(document).ready(function(){
+        let base_url = 'http://127.0.0.1:8000/';
+        let shoppping_cart_session_key = 'shopping_cart_session';
+
+        function get_product_id(){
+            return '19'
+        }
+
+        function get_shop_name(){
+            return 'bamilo';
+        }
+
+        $('#add_to_shopping_cart').click(function(event){
+            let data = {
+                'shop_name': get_shop_name(),
+                'product_id': get_product_id(),
+                'amount': 1
+            };
+
+            if(localStorage.getItem(shoppping_cart_session_key)){
+                let shopping_cart_session = localStorage.getItem(shoppping_cart_session_key);
+                data['session'] = shopping_cart_session;
+            }
+
+            $.ajax({
+            url: base_url+'shop/customer/add_to_shopping_cart/',
+            data: data,
+            type: 'POST',
+            datatype: "json",
+            cache: false,
+            traditional: true,
+            header: {},
+            success: function (data,  textStatus, xhr) {
+                if(xhr.status < 400){
+                    localStorage.setItem(shoppping_cart_session_key, JSON.parse(data['session']));
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log('error ', error);
+            }
+        });
+        })
+    });
 
 </script>
 

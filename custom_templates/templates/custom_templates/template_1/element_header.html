@@ -19,7 +19,7 @@
             <div class="border-thin border-green p-2 hover-pointer rounded border-info">
                 <span class="h5 text-center"><i class="fas fa-shopping-basket text-info"></i></span>
                 <span class="h6 text-center mr-3 text-info">سبد خرید</span>
-                <span class="badge badge-pill badge-info d-inline-block mr-3 ">5</span>
+                <span class="badge badge-pill badge-info d-inline-block mr-3 ">0</span>
             </div>
         </div>
     </div>
@@ -177,6 +177,8 @@
 
 <script>
     $(document).ready(function(){
+        let base_url = 'http://127.0.0.1:8000/';
+
         let pre_sharp = window.location.href.split('#')[0];
         $('a').each(function(){
                 if($(this).attr('data-url') !== undefined) {
@@ -198,9 +200,10 @@
         );
 
         function get_shop_name(){
-            let url_pre_sharp = window.location.href.split('#')[0];
-            let origin = window.location.origin;
-            return trim_substring(url_pre_sharp.substr(origin.length, url_pre_sharp.length), '/');
+{#            let url_pre_sharp = window.location.href.split('#')[0];#}
+{#            let origin = window.location.origin;#}
+{#            return trim_substring(url_pre_sharp.substr(origin.length, url_pre_sharp.length), '/');#}
+            return 'bamilo';
         }
 
         function trim_substring(string, substring){
@@ -221,10 +224,10 @@
             return string;
         }
 
-        // menu
+        <!-- beginning of menu -->
 
         $.ajax({
-            url: 'http://127.0.0.1:8000/template/get_menu/',
+            url: base_url+'template/get_menu/',
             data: {'shop_name': 'bamilo'},
             type: 'GET',
             datatype: "json",
@@ -247,12 +250,13 @@
             },
             error: function (xhr, status, error) {
                 console.log('error '+xhr.responseText + ' ' + status + ' ' + error);
+                console.log('error second\n', xhr);
             }
         });
 
         function add_menu_to_page(menu_html, submenu_html){
             $(".menu-wrapper").append($(menu_html));
-            $("#menu-modal .modal-body").first().html($(body));
+            $("#menu-modal .modal-body").first().html($(submenu_html));
             $(".top-level-menu-item-click").on('click', function(event){
                 $('#menu-modal').modal();
             });
@@ -333,6 +337,15 @@
                         '</div>';
             }
         }
+
+
+        <!-- end of menu -->
+
+        <!-- beginning of shopping cart -->
+
+
+
+        <!-- end of shopping cart -->
 
     });
 </script>
