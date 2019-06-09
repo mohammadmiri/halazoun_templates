@@ -42,11 +42,6 @@
             <div class="d-flex justify-content-center p-3"><div class="btn btn-success" id="add_to_shopping_cart">
                 افزودن به سبد خرید
             </div></div>
-            <div class="d-flex justify-content-center m-3">
-                <a href="" class="m-2 h4"><i class="fab fa-telegram-plane"></i></a>
-                <a href="" class="m-2 h4"><i class="fab fa-instagram"></i></a>
-                <a href="" class="m-2 h4"><i class="fab fa-twitter"></i></a>
-            </div>
             <div class="text-justify">
                 اگر در این روزها به فکر هدیه دادن به افرادی که دوستشان دارید هستید باید بدانید این پکیج لازم و ملزوم هر خانه و آشپزخانه ای است.
 پکیج با 10% تخفیف حاوی 2 جلد کتاب آشپزی ایرانی هر استان به روایت سانازمینایی, رازورمزها ونکات و تکنیک صحیح آشپزی ایرانی, نوآوری در عطر و طعم دستپخت ایرانی به همراه سی دی آموزشی مرحله به مرحله و یک جلد کتاب نکته و تکنیک آشپزی است که آنچه می بایست از خرید و نگهداری , ترکیب طعم ها و روشهای پخت , انواع برش و..... بدانید در آن وجود دارد.
@@ -57,86 +52,191 @@
     <div class="similar-products">
         <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
 
-            <!--Controls-->
-            <div class="controls-top">
-                <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i
-                    class="fas fa-chevron-left"></i></a>
-                <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i
-                    class="fas fa-chevron-right"></i></a>
+            <!-- related products -->
+            <div class="related-products-wrapper container pb-5">
+                <div class="row">
+                    <div class="text-right pr-3">
+                        <h5>محصولات مشابه</h5>
+                    </div>
+                </div>
+                <div class="row products-wrapper">
+                    <div class="col-md-3 col-sm-12 pb-2">
+                        <div class="product-wrapper">
+                            <div class="product-image text-center pt-3 pb-3">
+                                <img src="{% static 'custom_templates/img/slider-images/cS-3.jpg' %}">
+                            </div>
+                            <div class="product-name d-block text-center">
+                                کالای دیگر
+                            </div>
+                            <div class="product-base-price text-center">
+                                <del>2140</del>
+                            </div>
+                            <div class="product-discount-price text-center pb-3">
+                                <span>2140</span><span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 pb-2">
+                        <div class="product-wrapper">
+                            <div class="product-image text-center pt-3 pb-3">
+                                <img src="{% static 'custom_templates/img/slider-images/cS-1.jpg' %}">
+                            </div>
+                            <div class="product-name d-block text-center">
+                                کالای دیگر
+                            </div>
+                            <div class="product-base-price text-center">
+                                <del>2140</del>
+                            </div>
+                            <div class="product-discount-price text-center pb-3">
+                                <span>2140</span><span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 pb-2">
+                        <div class="product-wrapper">
+                            <div class="product-image text-center pt-3 pb-3">
+                                <img src="{% static 'custom_templates/img/slider-images/cS-4.jpg' %}">
+                            </div>
+                            <div class="product-name d-block text-center">
+                                کالای دیگر
+                            </div>
+                            <div class="product-base-price text-center">
+                                <del>2140</del>
+                            </div>
+                            <div class="product-discount-price text-center pb-3">
+                                <span>2140</span><span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 pb-2">
+                        <div class="product-wrapper">
+                            <div class="product-image text-center pt-3 pb-3">
+                                <img src="{% static 'custom_templates/img/slider-images/cS-5.jpg' %}">
+                            </div>
+                            <div class="product-name d-block text-center">
+                                کالای دیگر
+                            </div>
+                            <div class="product-base-price text-center">
+                                <del>2140</del>
+                            </div>
+                            <div class="product-discount-price text-center pb-3">
+                                <span>2140</span><span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12  pb-2">
+                        <div class="product-wrapper">
+                            <div class="product-image text-center pt-3 pb-3">
+                                <img src="{% static 'custom_templates/img/slider-images/cS-6.jpg' %}">
+                            </div>
+                            <div class="product-name d-block text-center">
+                                کالای دیگر
+                            </div>
+                            <div class="product-base-price text-center">
+                                <del>2140</del>
+                            </div>
+                            <div class="product-discount-price text-center pb-3">
+                                <span>2140</span><span>تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--/.Controls-->
+            <!-- end of related products -->
 
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="1"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="2"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="3"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="4"></li>
-                <li data-target="#carousel-example-multi" data-slide-to="5"></li>
-            </ol>
-            <!--/.Indicators-->
-
-            <div class="carousel-inner v-2" role="listbox">
-
-                <div class="carousel-item active">
-                    <div class="col-12 col-md-4">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (36).jpg"
-                                alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title font-weight-bold">Card title</h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                  card's content.</p>
-                                <a class="btn btn-primary btn-md btn-rounded">Button</a>
+            <!-- comment -->
+            <div class="comments-wrapper container pb-5">
+                <div class="text-right">
+                    نظرات:
+                </div>
+                <div class="body">
+                    <div class="comment-wrapper pb-2 mt-3">
+                        <div class="comment p-3" dir="rtl">
+                            <div class="name font-weight-bold text-right">
+    مجید محمدی:
+                            </div>
+                            <div class="text text-right">
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            </div>
+                        </div>
+                        <div class="reply pr-5">
+                            <div class="name font-weight-bold text-right">
+                                ادمین:
+                            </div>
+                            <div class="text text-right">
+    قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-wrapper pb-2  mt-3">
+                        <div class="comment p-3" dir="rtl">
+                            <div class="name font-weight-bold text-right">
+    مجید محمدی:
+                            </div>
+                            <div class="text text-right">
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
+                            </div>
+                        </div>
+                        <div class="reply pr-5">
+                            <div class="name font-weight-bold text-right">
+                                ادمین:
+                            </div>
+                            <div class="text text-right">
+    خوبه
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item active">
-                    <div class="col-12 col-md-4">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (36).jpg"
-                                alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title font-weight-bold">Card title</h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                  card's content.</p>
-                                <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item active">
-                    <div class="col-12 col-md-4">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (36).jpg"
-                                alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title font-weight-bold">Card title</h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                  card's content.</p>
-                                <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item active">
-                    <div class="col-12 col-md-4">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (36).jpg"
-                                alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title font-weight-bold">Card title</h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                  card's content.</p>
-                                <a class="btn btn-primary btn-md btn-rounded">Button</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+            <div class="write-comment-wrapper container form-group">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12 p-2">
+                        <div class="title text-right">
+                            نام
+                        </div>
+                        <div class="input w-100">
+                            <input placeholder="اختیاری" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 p-2">
+                        <div class="title text-right">
+                          ایمیل
+                        </div>
+                        <div class="input w-100">
+                            <input placeholder="اختیاری" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 p-2">
+                        <div class="title text-right">
+                            شماره موبایل
+                        </div>
+                        <div class="input">
+                            <input placeholder="اختیاری" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <textarea class="form-control w-100" placeholder="نظر" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="row mt-3 pr-3">
+                    <div class="btn btn-success white">ارسال</div>
+                </div>
+            </div>
+            <!-- end of comment -->
 
         </div>
     </div>
@@ -144,8 +244,27 @@
 </div>
 
 
-
 <style>
+
+    .related-products-wrapper .products-wrapper .product-wrapper{
+        border: solid 1px rgba(9, 9, 9, 0.2);
+        border-radius: 5px;
+    }
+    .related-products-wrapper .products-wrapper .product-image img{
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .comments-wrapper .comment-wrapper{
+        border: solid 1px rgba(9, 9, 9, 0.3);
+        border-radius: 4px;
+    }
+    .comments-wrapper .comment-wrapper .comment{
+
+    }
+    .comments-wrapper .comment-wrapper .reply{
+
+    }
 
 </style>
 
@@ -196,5 +315,3 @@
     });
 
 </script>
-
-

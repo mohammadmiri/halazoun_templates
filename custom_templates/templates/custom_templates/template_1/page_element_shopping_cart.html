@@ -3,7 +3,7 @@
 
 <div class="shopping-cart">
     <div class="states-wrapper d-flex justify-content-center">
-        <div class="w-50">
+        <div class="w-50 d-none d-md-block">
             <div class="d-flex align-items-center p-3">
                 <div class="state-logo state-color d-inline-block p-2 passed" data-tab-index="1">
                     <div class="d-flex justify-content-center color-light-gray p-3 h1"><i class="fas fa-shopping-bag"></i></div>
@@ -37,50 +37,6 @@
             <div class="col-md-2"></div>
         </div>
         <div class="products-wrapper" id="shopping_cart_product_wrapper">
-{#            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">#}
-{#                <div class="col-md-4">#}
-{#                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">#}
-{#                    <span class="mr-3">کفش</span>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <span class="price h5">25000</span>#}
-{#                    <span class="h6 mr-2">تومان</span>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">#}
-{#                        <div class="increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>#}
-{#                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>#}
-{#                        <div class="decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <span class="product-total-price h5">25000</span>#}
-{#                    <span class="h6 mr-2">تومان</span>#}
-{#                </div>#}
-{#                <div class="remove-product hover-pointer col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>#}
-{#            </div>#}
-{#            <div class="product row m-2 p-2 border-thin border-transparent border-shadow rounded">#}
-{#                <div class="col-md-4">#}
-{#                    <img src="{% static 'custom_templates/img/background.jpg' %}" class="rounded">#}
-{#                    <span class="mr-3">کفش</span>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <span class="price h5">35000</span>#}
-{#                    <span class="h6 mr-2">تومان</span>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <div class="product-count rounded d-flex align-items-center bg-dark-gray">#}
-{#                        <div class="increase-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-plus"></i></div>#}
-{#                        <div class="m-1 h3"><input class="product-count-input form-control text-center text-font bg-light-gray" type="text" value="5"></div>#}
-{#                        <div class="decrease-product-count hover-pointer m-1 pt-1 pr-2 pl-2"><i class="fas fa-minus"></i></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-2 d-flex align-items-center justify-content-center">#}
-{#                    <span class="product-total-price h5">25000</span>#}
-{#                    <span class="h6 mr-2">تومان</span>#}
-{#                </div>#}
-{#                <div class="remove-product hover-pointer col-md-2 d-flex align-items-center h4"><i class="far fa-trash-alt"></i></div>#}
-{#            </div>#}
         </div>
         <div class="total-price row mt-5 ml-2 color-dark-gray">
             <div class="col-md-8"></div>
@@ -108,21 +64,21 @@
 
     <div class="order-state state-delivery-form mt-3 p-5 color-dark-gray" data-tab-index="2">
         <div class="row">
-            <div class="col-md-5 p-2">
-                <div class="border-thin border-gray rounded p-2">
-                    <div class="d-inline-block col-md-9">
-                        <input type="text" placeholder="کد تخفیف" class="form-control text-font">
+            <div class="col-md-5 col-sm-12">
+                <div class="input-group" dir="ltr">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text" id="btnGroupAddon">اعمال تخفیف</div>
                     </div>
-                    <div class="btn btn-light d-inline-block col-md-3 float-left">اعمال تخفیف</div>
+                    <input type="text" class="form-control" placeholder="کد تخفیف" aria-label="Input group example" aria-describedby="btnGroupAddon">
                 </div>
-                <div class="p-3 pr-5 pl-5 mt-4 h5 clear-fix border-bottom">
+                <div class="pb-3 mt-4 h6 clear-fix border-bottom">
                     <span class="float-right">مبلغ کل سبد خرید:</span>
                     <span class="float-left">
                         <span class="shopping-cart-price">54000</span>
                         <span>تومان</span>
                     </span>
                 </div>
-                <div class="p-3 pr-5 pl-5 mt-4 h5 clear-fix border-bottom">
+                <div class="pb-3 mt-4 h6 clear-fix border-bottom">
                     <span class="float-right">مبلغ قابل پرداخت:</span>
                     <span class="float-left font-weight-bold">
                         <span class="shopping-cart-price">54000</span>
@@ -133,52 +89,52 @@
             <div class="col-md-7">
                 <form>
                     <div>
-                        <div class="col-md-3 p-2 d-inline-block">
-                            <div class="mb-2">نام</div>
+                        <div class="col-md-3 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">نام</div>
                             <div><input class="form-control" name="first_name"></div>
                         </div>
-                        <div class="col-md-3 p-2 d-inline-block">
-                            <div class="mb-2">نام خانوادگی</div>
+                        <div class="col-md-3 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">نام خانوادگی</div>
                             <div><input class="form-control" name="last_name"></div>
                         </div>
-                        <div class="col-md-5 p-2 d-inline-block">
-                            <div class="mb-2">ایمیل</div>
+                        <div class="col-md-5 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">ایمیل</div>
                             <div><input class="form-control" name="email"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="col-md-4 p-2 d-inline-block">
-                            <div class="mb-2">استان</div>
+                        <div class="col-md-4 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">استان</div>
                             <div><select class="form-control" name="state"></select></div>
                         </div>
-                        <div class="col-md-4 p-2 d-inline-block">
-                            <div class="mb-2">شهر</div>
+                        <div class="col-md-4 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right ">شهر</div>
                             <div><select class="form-control" name="city"></select></div>
                         </div>
-                        <div class="col-md-3 p-2 d-inline-block">
-                            <div class="mb-2">کد پستی</div>
+                        <div class="col-md-3 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">کد پستی</div>
                             <div><input class="form-control" name="postal_code"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="col-md-5 p-2 d-inline-block">
-                            <div class="mb-2">شماره موبایل</div>
+                        <div class="col-md-5 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">شماره موبایل</div>
                             <div><input class="form-control" name="mobile_number"></div>
                         </div>
-                        <div class="col-md-6 p-2 d-inline-block">
-                            <div class="mb-2">تلفن ثابت</div>
+                        <div class="col-md-6 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">تلفن ثابت</div>
                             <div><input class="form-control" name="phone_number"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="col-md-11 p-2 d-inline-block">
-                            <div class="mb-2">نشانی</div>
+                        <div class="col-md-11 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">نشانی</div>
                             <div><textarea class="form-control" name="mobile_number"></textarea></div>
                         </div>
                     </div>
                     <div>
-                        <div class="col-md-11 p-2 d-inline-block">
-                            <div class="mb-2">توضیحات(اختیاری)</div>
+                        <div class="col-md-11 col-sm-12 p-2 d-inline-block">
+                            <div class="mb-2 text-right">توضیحات(اختیاری)</div>
                             <div><textarea class="form-control" name="additional_info"></textarea></div>
                         </div>
                     </div>
@@ -235,7 +191,7 @@
                 <span class="col-md-9 d-inline-block">فرم ارسال</span>
             </div>
             <div class="col-md-8"></div>
-            <a href="" class="simple-link col-md-2 text-center p-2 border-shadow color-dark-gray">
+            <a id="submit-order" class="simple-link col-md-2 text-center p-2 border-shadow color-dark-gray">
                 <span class="col-md-9 d-inline-block">صفحه‌ی پرداخت</span>
                 <span class="col-md-2 d-inline-block"><i class="fas fa-chevron-left"></i></span>
             </a>
@@ -393,16 +349,6 @@
         }
     })();
 
-    function change_product_count(button_element, amount) {
-        let wrapper_element = button_element.closest('.product-count');
-        let product_count_input_element = wrapper_element.find('.product-count-input');
-        let current_count = parseInt(product_count_input_element.value);
-        if(current_count > 0 || amount >= 0){
-            product_count_input_element.value = current_count + amount;
-            fix_prices();
-        }
-    }
-
     function fix_prices() {
         let sum = 0;
         $('.state-shopping-cart .products-wrapper .product').each(function(index ,value){
@@ -509,5 +455,27 @@
             }
         });
     }
+
+    $('#submit-order').click(function(event){
+        $.ajax({
+            url: base_url+'shop/customer/add_to_shopping_cart/',
+            data: {'shop_name': 'bamilo', 'session': session, 'product_id':product_id, 'amount': amount},
+            type: 'POST',
+            datatype: "json",
+            cache: false,
+            traditional: true,
+            header: {},
+            success: function (data,  textStatus, xhr) {
+                if(xhr.status < 400){
+                    shopping_cart = data.shopping_cart;
+                    add_to_shopping_cart_wrapper(shopping_cart, product_item_string);
+                    hide_loading();
+                }
+            },
+            error: function (xhr, status, error) {
+                hide_loading();
+            }
+        });
+    })
 
 </script>
