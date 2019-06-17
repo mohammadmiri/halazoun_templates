@@ -145,97 +145,51 @@
             <!-- end of related products -->
 
             <!-- comment -->
-            <div class="comments-wrapper container pb-5">
+            <div class="comments-wrapper container pb-5" id="comments-wrapper">
                 <div class="text-right">
                     نظرات:
                 </div>
                 <div class="body">
-                    <div class="comment-wrapper pb-2 mt-3">
-                        <div class="comment p-3" dir="rtl">
-                            <div class="name font-weight-bold text-right">
-    مجید محمدی:
-                            </div>
-                            <div class="text text-right">
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            </div>
-                        </div>
-                        <div class="reply pr-5">
-                            <div class="name font-weight-bold text-right">
-                                ادمین:
-                            </div>
-                            <div class="text text-right">
-    قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-wrapper pb-2  mt-3">
-                        <div class="comment p-3" dir="rtl">
-                            <div class="name font-weight-bold text-right">
-    مجید محمدی:
-                            </div>
-                            <div class="text text-right">
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            قیمت محصول در برابر کیفیت خوب استقیمت محصول در برابر کیفیت خوب است
-                            </div>
-                        </div>
-                        <div class="reply pr-5">
-                            <div class="name font-weight-bold text-right">
-                                ادمین:
-                            </div>
-                            <div class="text text-right">
-    خوبه
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="write-comment-wrapper container form-group">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12 p-2">
-                        <div class="title text-right">
-                            نام
+            <form action="shop/add_comments" method="post" id="comment-form">
+                <div class="write-comment-wrapper container form-group">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12 col-xs-12 p-2">
+                            <div class="title text-right">
+                                نام
+                            </div>
+                            <div class="input w-100">
+                                <input name="name" placeholder="اختیاری" class="form-control">
+                            </div>
                         </div>
-                        <div class="input w-100">
-                            <input placeholder="اختیاری" class="form-control">
+                        <div class="col-md-4 col-sm-12 p-2">
+                            <div class="title text-right">
+                              ایمیل
+                            </div>
+                            <div class="input w-100">
+                                <input name="email" placeholder="اختیاری" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12 p-2">
+                            <div class="title text-right">
+                                شماره موبایل
+                            </div>
+                            <div class="input">
+                                <input name="mobile-number" placeholder="اختیاری" class="form-control">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-12 p-2">
-                        <div class="title text-right">
-                          ایمیل
-                        </div>
-                        <div class="input w-100">
-                            <input placeholder="اختیاری" class="form-control">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <textarea name="text" class="form-control w-100" placeholder="نظر" rows="10"></textarea>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-12 p-2">
-                        <div class="title text-right">
-                            شماره موبایل
-                        </div>
-                        <div class="input">
-                            <input placeholder="اختیاری" class="form-control">
-                        </div>
+                    <div class="row mt-3 pr-3">
+                        <button class="btn btn-success white" type="submit">ارسال</button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <textarea class="form-control w-100" placeholder="نظر" rows="10"></textarea>
-                    </div>
-                </div>
-                <div class="row mt-3 pr-3">
-                    <div class="btn btn-success white">ارسال</div>
-                </div>
-            </div>
+            </form>
             <!-- end of comment -->
 
         </div>
@@ -265,6 +219,9 @@
     .comments-wrapper .comment-wrapper .reply{
 
     }
+    .hidden-item{
+        display: none;
+    }
 
 </style>
 
@@ -273,14 +230,6 @@
     $(document).ready(function(){
         let base_url = 'http://127.0.0.1:8000/';
         let shoppping_cart_session_key = 'shopping_cart_session';
-
-        function get_product_id(){
-            return '19'
-        }
-
-        function get_shop_name(){
-            return 'bamilo';
-        }
 
         $('#add_to_shopping_cart').click(function(event){
             let data = {
@@ -309,9 +258,70 @@
             },
             error: function (xhr, status, error) {
                 console.log('error ', error);
-            }
+            }});
         });
-        })
+
+        fetch_comments(base_url);
+        $('#comment-form').attr({'action': base_url+'shop/customer/add_comment/'+get_product_id()})
+
     });
+
+    function get_product_id(){
+        return '19'
+    }
+
+    function get_shop_name(){
+        return 'bamilo';
+    }
+
+    function fetch_comments(base_url){
+        url = base_url+'shop/customer/list_comments_of_products/'+get_product_id();
+        $.ajax({
+            url: url,
+            data: {},
+            type: 'GET',
+            datatype: "json",
+            cache: false,
+            traditional: true,
+            header: {},
+            success: function (data,  textStatus, xhr) {
+                if(xhr.status < 400){
+                    console.log(data);
+                    add_comments(data);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log('error ', error);
+            }}
+        );
+
+        function add_comments(comments){
+            let comment_element_string = '<div class="comment-wrapper pb-2 mt-3">'+
+                        '<div class="comment p-3" dir="rtl">'+
+                            '<div class="name font-weight-bold text-right">'+
+                            '</div>'+
+                            '<div class="text text-right">'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="reply pr-5">'+
+                            '<div class="name font-weight-bold text-right">'+
+                            'جواب ادمین:'+
+                            '</div>'+
+                            '<div class="text text-right">'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>';
+            for(let i=0; i<comments.length; i++){
+                let comment_element = $(comment_element_string);
+                comment_element.find('.comment .name').text(comments[i]['name']+':');
+                comment_element.find('.comment .text').text(comments[i]['text']);
+                comment_element.find('.reply .text').text(comments[i]['reply']);
+                if(comments[i]['reply'] == '' || comments[i]['reply'] == undefined ){
+                    comment_element.find('.reply').addClass('hidden-item');
+                }
+                $('#comments-wrapper').append(comment_element);
+            }
+        }
+    }
 
 </script>
